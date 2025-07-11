@@ -21,7 +21,7 @@ export default function App() {
         <View>
           <View style={{flexDirection:'row',marginTop:10,height:50}}>
             <Image
-              source={require('./assets/logo-unic.jpg')}
+              source={require('../assets/logo-unic.jpg')}
               style={{ width: 40, height: 40 }}
             />
             <View style={{width:10}} />
@@ -29,26 +29,7 @@ export default function App() {
           </View>
           <Text style={styles.titulo2}>CENTRO INTEGRAL DE ESTUDIOS SUPERIORES</Text>
           <View style={{height:20}} />
-          <Text style={styles.titulo2}>Acceso al Sistema</Text>
-          <Text style={styles.label}>Correo:</Text>
-          <TextInput
-            style={styles.input}
-            placeholder="Introduce tu correo"
-            value={correo}
-            onChangeText={setCorreo}
-            keyboardType='email-address'
-          />
-          <Text style={styles.label}>Contraseña:</Text>
-          <TextInput
-            style={styles.input}
-            placeholder="Introduce tu password"
-            value={password}
-            onChangeText={setPassword}
-            secureTextEntry
-          />
-          <TouchableOpacity style={styles.boton} onPress={saludar}>
-            <Text style={styles.botonTexto}>Ingresar</Text>
-          </TouchableOpacity>
+          <Text style={styles.titulo2}>DASHBORAD</Text>
         </View>
         <StatusBar style="auto" />
       </SafeAreaView>

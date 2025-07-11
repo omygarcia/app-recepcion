@@ -10,8 +10,9 @@ export default function App() {
   const [correo, setCorreo] = useState('');
   const [password, setPassword] = useState('');
 
-  const saludar = () => {
-    alert(`Texto enviado: ${correo}`);
+  const login = async() => {
+    //alert(`Texto enviado: ${correo}`);
+    router.push('/dashboard');
   };
 
 
@@ -21,7 +22,7 @@ export default function App() {
         <View>
           <View style={{flexDirection:'row',marginTop:10,height:50}}>
             <Image
-              source={require('./assets/logo-unic.jpg')}
+              source={require('../assets/logo-unic.jpg')}
               style={{ width: 40, height: 40 }}
             />
             <View style={{width:10}} />
@@ -46,7 +47,7 @@ export default function App() {
             onChangeText={setPassword}
             secureTextEntry
           />
-          <TouchableOpacity style={styles.boton} onPress={saludar}>
+          <TouchableOpacity style={styles.boton} onPress={login}>
             <Text style={styles.botonTexto}>Ingresar</Text>
           </TouchableOpacity>
         </View>
