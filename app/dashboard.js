@@ -1,5 +1,6 @@
 import React, { useState } from 'react';import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View, Image, TextInput, TouchableOpacity } from 'react-native';
+import {Calendar} from 'react-native-calendars';
 import { SafeAreaProvider, SafeAreaView } from 'react-native-safe-area-context';
 import { useRouter } from 'expo-router';
 
@@ -9,10 +10,16 @@ export default function App() {
 
   const [correo, setCorreo] = useState('');
   const [password, setPassword] = useState('');
+  const [selectedDate, setSelectedDate] = useState('');
+
 
   const saludar = () => {
     alert(`Texto enviado: ${correo}`);
   };
+
+  const abriQRScanner = () =>{
+      router.push('/qrscanner');
+  }
 
 
   return (
@@ -30,6 +37,18 @@ export default function App() {
           <Text style={styles.titulo2}>CENTRO INTEGRAL DE ESTUDIOS SUPERIORES</Text>
           <View style={{height:20}} />
           <Text style={styles.titulo2}>DASHBORAD</Text>
+          <Calendar
+            onDayPress={day => setSelectedDate(day.dateString)}
+            markedDates={{
+                '2025-07-15': { marked: true, dotColor: 'green' },
+                '2025-07-18': { marked: true, dotColor: 'green' },
+                '2025-07-20': { disabled: true }, // fecha bloqueada
+                [selectedDate]: { selected: true, selectedColor: 'blue' }
+            }}
+        />
+          <TouchableOpacity style={styles.boton} onPress={abriQRScanner}>
+            <Text style={styles.botonTexto}>Scannear</Text>
+          </TouchableOpacity>
         </View>
         <StatusBar style="auto" />
       </SafeAreaView>
